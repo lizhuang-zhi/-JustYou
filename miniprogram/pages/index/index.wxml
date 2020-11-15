@@ -1,0 +1,158 @@
+<!-- 顶部栏 -->
+<van-sticky>
+  <view class="headbar">
+    <view class="pic" bindtap="showPopup">
+      <van-image round width="3.2rem" height="3.2rem" src="{{userImg}}" />
+    </view>
+    <view class="words">{{JudgeTime}}好，{{userName}}</view>
+  </view>
+</van-sticky>
+
+
+<!-- 左侧弹出层，点击头像 -->
+<view class="leftPanel">
+  <van-popup
+    show="{{ show }}"
+    position="left"
+    custom-style="width: 60%;height:100%"
+    bind:close="onClose"
+  >
+    <!-- 左侧弹出 -->
+    <popleft userImg="{{userImg}}"></popleft>
+  </van-popup>
+
+</view>
+
+
+<!-- 主体栏 -->
+<view class="mainbar">
+  <view class="box">
+    <!-- 左侧轮播 -->
+    <view class="lunbo">
+      <view class="banner">
+        <swiper indicator-dots 
+          indicator-color="rgba(255,255,255,0.5)" 
+          indicator-active-color="#fff" 
+          circular autoplay
+          interval="7000">
+          <swiper-item>
+            <image
+              src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1519263927,1554024039&fm=26&gp=0.jpg">
+            </image>
+          </swiper-item>
+          <swiper-item>
+            <image
+              src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=301839729,184320281&fm=26&gp=0.jpg">
+            </image>
+          </swiper-item>
+          <swiper-item>
+            <image
+              src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3258537004,1856926204&fm=26&gp=0.jpg">
+            </image>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+    
+    <!-- 右侧栏 -->
+    <view class="right">
+      <view class="upbar" bindtap="TaskContent">
+        <view class="words">任务大厅</view>
+        <view class="go" animation="{{animationData}}">>></view>
+      </view>
+
+      <view class="bottombar">
+        <view class="leftpar">
+
+          <!-- 第一个小方块 -->
+          <view class="square">
+            <view class="pic" bindtap="ToSearchPage">
+              <image src="https://s1.ax1x.com/2020/11/09/B7z9W4.png"></image>
+            </view>
+          </view>
+
+          <!-- 第二个小方块 -->
+          <view class="square1">
+            <view class="pic1" bindtap="GiveToast">
+              <image src="https://s1.ax1x.com/2020/11/09/B7zJTf.png"></image>
+            </view>
+          </view>
+
+        </view>
+
+        <view class="rightpar">
+          <!-- 长条项目商城 -->
+          <view class="longbox">
+            <view class="box" bindtap="ShoppingContent">
+              <view class="tit">项目商城</view>
+              <view class="go">>></view>
+            </view>
+          </view>
+
+          <!-- 自定义组件 -->
+          <!-- <LongSquare/> -->
+        </view>
+      </view>
+
+
+    </view>
+
+  </view>
+</view>
+
+
+<!-- 通知栏 -->
+<view class="notify">
+  <van-notice-bar color="#1989fa" background="#F6F6F6" left-icon="volume-o" text="最近疫情当前，我们需要时刻警觉自生安全!最近疫情当前，我们需要时刻警觉自生安全!最近疫情当前，我们需要时刻警觉自生安全!" />
+</view>
+
+<!-- 分类栏 -->
+<view class="categorybar">
+  <van-tabs swipeable bind:change="ChangeTabs">
+
+    <view class="box">
+
+      <block wx:for="{{CateList}}" wx:key="index">
+
+        <van-tab title="{{item.name}}">
+
+          <block wx:for="{{TaskByCate}}" wx:key="index">
+            <Taskbar time="{{item.release_time}}"
+            looks="{{item.recruiting_number}}"
+            category="{{item.taskClassification.name}}"
+            title="{{item.task_title}}"
+            picture="{{item.backpic}}"
+            task_id="{{item.id}}"
+            takObj="{{item}}"></Taskbar>
+          </block>
+
+        </van-tab>
+
+      </block>
+      
+    </view>
+    
+  </van-tabs>
+</view>
+
+
+
+
+
+
+
+
+
+
+<!-- 底部tabbar -->
+<!-- <van-tabbar active="{{ active }}" active-color="#8ccfb9" bind:change="onChange">
+  <van-tabbar-item icon="setting-o">商城</van-tabbar-item>
+  <van-tabbar-item>
+    <van-icon animation="{{ani}}" slot="icon" color="#8ccfb9" name="add" size="51px" />
+    <van-icon animation="{{ani}}" slot="icon-active" name="add" size="51px" />
+  </van-tabbar-item>
+  <van-tabbar-item icon="setting-o">我的</van-tabbar-item>
+</van-tabbar> -->
+
+
+

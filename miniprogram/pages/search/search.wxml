@@ -1,0 +1,64 @@
+<view class="Searchcontainer">
+  <view class="searchbox">
+    <!-- 顶部栏 -->
+    <view class="topbar">
+      <van-search
+        value="{{ value }}"
+        shape="round"
+        background="#D1DBBD"
+        placeholder="请输入搜索关键词"
+      />
+    </view>
+
+    <!-- 历史搜索 -->
+    <view class="historySearch">
+      <view class="history">
+
+        <view class="topplace">
+          <view class="tit">历史搜索</view>
+          <view class="imgGar">
+            <image src="cloud://leo-wxnmc.6c65-leo-wxnmc-1302702304/Blog/sorts.png"></image>
+          </view>
+        </view>
+        
+        <view class="content">
+          <block wx:for="{{RescentSeaList}}" wx:key="index">
+            <view class="searchwords">
+              <view class="words">{{item}}</view>
+            </view>
+          </block>
+        </view>
+
+      </view>
+    </view>
+
+    <!-- 热门搜索 -->
+    <view class="hot">
+      <view class="topbar">
+        <view class="tit">热门搜索</view>
+        <view class="pic">
+          <image src="cloud://leo-wxnmc.6c65-leo-wxnmc-1302702304/Blog/sorts.png"></image>          
+        </view>
+      </view>
+
+      <!-- <view class="contentOfhot">
+        <block wx:for="{{RankList}}" wx:key="index">
+          <hotcard color="{{item.color}}" 
+          rankingnum="{{item.rank}}" 
+          Desc="{{item.desc}}" 
+          numberValue="{{item.numVal}}"
+          judge="{{item.jud}}"/>
+        </block>
+      </view> -->
+
+      <view class="hotlist">
+        <view wx:for="{{hotTagList}}" wx:key="index" 
+         data-tagid="{{item.tagId}}" bindtap="GetTagId">
+          <Hotlist rankNum="{{index+1}}" desc="{{item.tagName}}" tagCount="{{item.tagCount}}"></Hotlist>
+        </view>
+      </view>
+      
+    </view>
+
+  </view>
+</view>

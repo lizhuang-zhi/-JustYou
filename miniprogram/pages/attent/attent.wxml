@@ -1,0 +1,22 @@
+
+<van-tabs active="{{ activeId }}" bind:change="onChange">
+	<van-tab title="关注">
+		<view wx:for="{{UserList}}" wx:key="index">
+			<attentioncard 
+			attenimg="{{item.user.userHeadPortrait}}"
+			AttentionTime="{{item.attentionTime}}"
+			userName="{{item.user.userName}}"
+			 />
+		</view>
+	</van-tab>
+
+	<van-tab title="粉丝">
+		<view wx:for="{{FansList}}" wx:key="index">
+			<attentioncard 
+			attenimg="{{item.user.userHeadPortrait}}"
+			AttentionTime="{{item.attentionTime}}"
+			userName="{{item.user.userName}}"
+			 />
+		</view>
+	</van-tab>
+</van-tabs>

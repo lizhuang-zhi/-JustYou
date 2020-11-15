@@ -1,0 +1,80 @@
+<view class="card">
+	<!-- 卡片顶部容器 -->
+	<view class="card-head">
+		<view class="user-list">
+			<!-- 用户头像 -->
+			<view class="user-img">
+				<image src="{{userimg}}"></image>
+			</view>
+			<!-- 用户id -->
+			<view class="user-id">
+				<text>{{userid}}</text>
+			</view>
+			<!-- 发表时间 -->
+			<view class="user-time">
+				<text>{{time}}</text>
+			</view>
+			<!-- 关注 -->
+			<view class="state" bindtap="onClick">
+				<text>{{atten}}</text>
+			</view>
+		</view>
+	</view>
+	<!--发表内容 -->
+	<view class="content">
+		<text>
+		{{txt}}
+		</text>
+	</view>
+	<view class="img-list">
+		<UserSpaceimg PicList="{{image}}"/>
+	</view>
+
+	<!-- 底部logo -->
+	<view class="buttom-logo">
+		<!-- 收藏 -->
+		<view class="Collection" bindtap="Tapstart">
+			<image wx:if="{{light}}" src="https://s1.ax1x.com/2020/10/04/0GB3TS.png"></image>
+			<image wx:else src="https://s1.ax1x.com/2020/10/04/0GB1w8.png"></image>
+		</view>
+		<!-- 浏览 -->
+		<view class="eye">
+			<image src="https://s1.ax1x.com/2020/10/13/04lkfH.png"></image>
+			<text class="eye-num">{{looksNum}}</text>
+		</view>
+		<!-- 爱心 -->
+		<view class="click" bindtap="tapLike">
+			<image wx:if="{{judge == false}}" src="https://s1.ax1x.com/2020/10/07/0ah39J.png"></image>
+			<image wx:else src="https://s1.ax1x.com/2020/10/07/0ahlh4.png"></image>
+			<text class="click-love">{{lovenum}}</text>
+		</view>
+
+		<!-- 消息 -->
+		<view class="Message">
+			<image bindtap='focusButn' 
+			src="https://s1.ax1x.com/2020/10/07/0ahcut.png">
+			</image>
+			<text class="MS" bindtap='focusButn'>评论</text>
+			
+			<!-- 弹出输入框 -->
+			<view class='commentInputView' 
+			style='bottom:{{height == ""?0:height}}px;' 
+			hidden='{{!isInput}}'>
+
+				<view class='commentInput'>
+					<input class='input' 
+					maxlength='-1' 
+					value="{{ContentWords}}" 
+					bindfocus="inputFocus" 
+					focus='{{focusInput}}' 
+					bindblur="inputBlur" 
+					cursor-spacing ></input>
+				</view>
+				
+				<button class='send' 
+				bind:tap="SendComment" 
+				data-comVal="{{ContentWords}}">发送</button>
+			</view>
+		</view>
+	</view>
+</view>

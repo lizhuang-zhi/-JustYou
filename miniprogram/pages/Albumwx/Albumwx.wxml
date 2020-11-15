@@ -1,0 +1,14 @@
+<view class="myAlbum">
+	<!--相册头部 -->
+	<view class="Ablum-head">
+		<view class="Album-name">我的相册</view>
+		<!-- 相册图标 -->
+		<view class="Album-icon">
+		</view>
+		<view class="Album-con">人与景皆可如画</view>
+	</view>
+	<!-- 相册列表 -->
+	<block wx:for="{{3}}" wx:key="index">
+		<Album />
+	</block>
+</view>

@@ -1,0 +1,22 @@
+
+<view class="outside" style="{{animationStart}}">
+
+  <view class="up">
+    <view class="word">JustYou</view>
+    <view class="sentence">
+      <view class="line"></view>
+      <view class="tit">跟随我的心只为找寻你</view>
+      <view class="line"></view>
+    </view>
+  </view>
+
+
+  <view class="picpart">
+    <view class="pic">
+      <image src="https://s1.ax1x.com/2020/11/08/BTFejH.png"></image>
+    </view>
+  </view>
+
+
+  <button bindtap="ToStart">开启旅程</button>
+</view>

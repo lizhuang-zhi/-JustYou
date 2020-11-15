@@ -1,0 +1,23 @@
+page{
+  background: rgb(255,255,255);
+
+}
+.outbox {
+  padding: 52rpx 0 0;
+  margin: 0 auto;
+}
+
+.outbox .section button {
+  position: fixed;
+  bottom: 10%;
+  left: 10%;
+  width: 80%;
+  background: #585859;
+  color: #FFFFFF;
+  
+}
+
+.outbox .section .upPic {
+  position: absolute;
+  top: 35%;
+}

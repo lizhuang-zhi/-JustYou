@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "ExpressInfo":"/components/ExpressInfo/ExpressInfo",
+    "Pickerup":"/components/Pickerup/Pickerup"
+  }
+}

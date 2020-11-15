@@ -1,0 +1,103 @@
+
+<view class="topBor">
+	<van-image fit="contain" round width="10rem" height="8rem" src="{{picUrl}}" />
+</view>
+
+
+<!-- 重置点击栏 -->
+<view class="uppart"></view>
+
+<!-- 关于我的布块 -->
+<view class="article">
+
+  <view class="box">
+    <view class="theme">关于我的</view>
+    <view class="line"></view>
+
+    <view class="function" wx:for="{{aboutMeList}}" wx:key="index">
+      <!-- 第一个功能 -->
+      <view class="collection" bindtap="myProServe"
+      data-url="{{item.url}}">
+        <view class="leftPart">
+          <image src="{{item.pic}}"></image>
+          <view class="tit">{{item.tit}}</view>
+        </view>
+        <view class="rightPart">查看 ></view>
+      </view>
+
+
+    </view>
+
+  </view>
+</view>
+
+<!-- 灰色分界线 -->
+<view class="linePar"></view>
+
+
+<!-- 周边服务布块 -->
+<view class="around_sales">
+
+  <view class="box">
+
+    <view class="theme">周边服务</view>
+
+    <van-grid column-num="3">
+      <van-grid-item 
+      icon="{{item.pic}}" 
+      text="{{item.text}}" 
+      wx:for="{{ aroundSaleList }}" 
+      wx:key="index" 
+      bindtap="ToAroundService" 
+      data-url="{{item.url}}"/>
+    </van-grid>
+
+  </view>
+</view>
+
+
+<!-- 其他 -->
+<view class="other">
+  <view class="box">
+    <view class="theme">其他服务</view>
+    <view class="line"></view>
+    <view class="func" wx:for="{{otherList}}" wx:key="index">
+
+      <view class="part" data-url="{{item.url}}"
+      bindtap="ToAbout">
+        <view class="inner">
+          <view class="left">
+            <image src="{{item.pic}}"></image>
+            <view class="tit">{{item.text}}</view>
+          </view>
+          <view class="right">></view>
+        </view>
+        <!-- 微信开放能力 -->
+        <button 
+          wx:if="{{index != 3}}" 
+          class="power" 
+          open-type="{{item.power}}"
+        ></button>
+
+        <view class="liner"></view>
+      </view>
+      
+
+    </view>
+  </view>
+</view>
+
+<!-- 底部logo -->
+<view class="bottomlogo">
+  <image src="https://s1.ax1x.com/2020/11/06/BWOupF.png"></image>
+  <view class="txt">- 云顶犀提供技术支持 -</view>
+</view>
+
+
+<view class="radius"></view>
+
+
+
+<view class="nickname"><text>Hi</text> , {{name}}</view>
+
+

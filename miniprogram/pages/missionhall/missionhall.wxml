@@ -1,0 +1,55 @@
+<!-- 顶部 -->
+<view class="topbox">
+  <view class="topbar">
+    <view class="tit">
+      <view class="word">Mission</view>
+      <view class="backgroud"></view>
+    </view>
+    <view class="toast">快来发布你的任务~</view>
+  </view>
+</view>
+
+
+<!-- 任务主体 -->
+<view class="outbox">
+  <view class="contentBox">
+
+    <block wx:for="{{backgroundList}}" wx:key="index">
+
+      <!-- 任务大厅发布 -->
+      <view class="long" 
+      style="background: {{item.backColor}};"
+      bindtap="ToGetAPage" 
+      animation="{{animationData}}" 
+      data-title="{{item.name}}" 
+      data-id="{{item.id}}">
+        <view class="longbox">
+
+          <view class="up">
+            <view class="pic">
+              <image src="{{item.picture}}"></image>
+            </view>
+
+            <view class="tit">{{item.name}}</view>
+          </view>
+
+          <view class="mid">
+            <view class="word">{{item.describe}}</view>
+          </view>
+
+          <view class="bottom">
+            <view class="join">{{item.classCount}} 参与</view>
+            <view class="img">
+              <image src="/images/箭头.png"></image>
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+    </block>
+
+    
+  </view>
+</view>
+

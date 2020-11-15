@@ -1,0 +1,65 @@
+
+<!-- 设置外部容器 -->
+<view class="head">
+	<!-- 背景图片 -->
+	<image src="https://s1.ax1x.com/2020/10/01/0KfmY4.jpg"></image>
+	<!-- 设置关注 -->
+	<view bindtap="Attention" class="Add_attention">
+		<text>{{atten}}</text>
+	</view>
+	<view class="chat" bindtap="ChatWithMe">私聊</view>
+
+	<!-- 用户列表 -->
+	<view class="user-list">
+		<!-- 用户头像 -->
+		<view class="user-img">
+			<image src="cloud://leo-wxnmc.6c65-leo-wxnmc-1302702304/JustYou/goddes.png"></image>
+		</view>
+		<!-- 用户id -->
+		<view class="user-id">
+			<text>木木</text>
+			<!-- <image src="cloud://kchheniry-4lstb.6b63-kchheniry-4lstb-1302952647/JustYou/User/edit (1).png"></image> -->
+		</view>
+		<!-- 用户存在天数 -->
+		<view class="user-time">
+			<text>541天</text>
+		</view>
+	</view>
+</view>
+
+<!-- 设置动态框 -->
+<view class="main">
+	<!-- 顶部导航栏 -->
+	<view class="top-wrapper">
+		<!-- 关注 -->
+		<view bindtap="attent" class="attention" data-act="0">
+			<view class="attention-num">{{attentionPeo}}</view>
+			<view class="attention-name">关注</view>
+		</view>
+		<!-- 粉丝 -->
+		<view bindtap="attent" class="fans" data-act="1">
+			<view class="fans-num">{{fans}}</view>
+			<view class="fans-name">粉丝</view>
+		</view>
+		<!-- 动态 -->
+		<view class="activity" bindtap="Mylist">
+			<view class="activity-num">{{NumOfTask}}</view>
+			<view class="activity-name">历史任务</view>
+		</view>
+		
+	</view>
+</view>
+
+
+<block wx:for="{{DynamicList}}" wx:key="index">
+	<maincard 
+		image="{{item.photo}}"
+		txt="{{item.abstracts}}"
+		time="{{item.dynamicTime}}" 
+		userimg="{{item.user.userHeadPortrait}}" 
+		username="{{item.user.userName}}" 
+		looksNum="{{item.dynamicViews}}"
+		lovenum="{{item.likeCount}}"
+		dynamic="{{item.id}}"
+		dynamic_id="{{item.id}}"/>
+</block>

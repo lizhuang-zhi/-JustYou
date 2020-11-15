@@ -1,0 +1,62 @@
+<view class="card">
+	<!-- 卡片顶部容器 -->
+	<view class="card-head">
+		<view class="user-list">
+			<!-- 用户头像 -->
+			<view class="user-img" bindtap="ToAboutUser">
+				<image src="{{userimg}}"></image>
+			</view>
+			<!-- 用户昵称 -->
+			<view class="user-id">
+				<text>{{username}}</text>
+			</view>
+			<!-- 发表时间 -->
+			<view class="user-time">
+				<text>{{time}}</text>
+			</view>
+			<!-- 发表状态 -->
+			<van-action-sheet 
+			show="{{ show }}" 
+			actions="{{ actions }}" 
+			bind:close="onClose" 
+			bind:select="onSelect" />
+			<view class="state" bindtap="onClick">
+				<image src="https://s1.ax1x.com/2020/11/09/BH7Ef1.png">
+				</image>
+			</view>
+		</view>
+	</view>
+	<!-- 点击详情 -->
+	<view bindtap="init">
+		<!--发表内容 -->
+		<view class="content">
+			<text>
+			{{txt}}
+			</text>
+		</view>
+		<view class="img-list">
+			<UserSpaceimg PicList="{{image}}"/>
+		</view>
+	</view>
+
+	<!-- 底部logo -->
+	<view class="buttom-logo">
+		<!-- 浏览 -->
+		<view class="eye">
+			<image src="https://s1.ax1x.com/2020/10/13/04lkfH.png"></image>
+			<text class="eye-num">{{looksNum}}</text>
+		</view>
+		<!-- 爱心 -->
+		<view class="click" bindtap="GiveLove">
+			<image wx:if="{{judge == false}}" src="https://s1.ax1x.com/2020/10/07/0ah39J.png"></image>
+			<image wx:else src="https://s1.ax1x.com/2020/10/07/0ahlh4.png"></image>
+			<text class="click-love">{{lovenum}}</text>
+		</view>
+		<!-- 消息 -->
+		<view class="Message" bindtap="init">
+			<image src="https://s1.ax1x.com/2020/10/07/0ahcut.png">
+			</image>
+			<text class="MS">评论</text>
+		</view>
+	</view>
+</view>

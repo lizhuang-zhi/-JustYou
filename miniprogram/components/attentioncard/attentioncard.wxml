@@ -1,0 +1,20 @@
+<view class="outbox">
+		<view class="box">
+			<!-- 设置用户列表 -->
+			<view class="user-list">
+				<!-- 用户头像 -->
+				<view class="user-img">
+					<image src="{{attenimg}}"></image>
+				</view>
+				<!-- 用户id -->
+				<view class="user-id">
+					<text>{{userName}}</text>
+				</view>
+				
+				<!-- 发表时间 -->
+				<view class="user-time">
+					<text>{{AttentionTime}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
